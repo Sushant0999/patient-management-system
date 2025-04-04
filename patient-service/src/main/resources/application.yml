@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: patient-service
+
+  datasource:
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+    username: admin_viewer
+    password: password
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    database-platform: h2
+    sql:
+      init:
+        mode: always
+        platform: h2
+        encoding: UTF-8
+
+server:
+  port: 4000

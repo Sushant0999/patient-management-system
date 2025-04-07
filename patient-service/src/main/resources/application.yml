@@ -2,6 +2,11 @@ spring:
   application:
     name: patient-service
 
+  kafka:
+    producer:
+      key-serializer: org.apache.common.serialization.StringSerializer
+      value-serializer: org.apache.common.serialization.ByteArraySerializer
+
 
 #  datasource:
 #    url: jdbc:h2:mem:test
@@ -39,4 +44,6 @@ management:
   metrics:
     enable:
       process: false
+
+
 

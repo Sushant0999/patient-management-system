@@ -17,12 +17,14 @@ COPY src ./src
 RUN ./gradlew clean build --no-daemon -x test
 
 # Run stage
-FROM eclipse-temurin:17-jdk AS runner
+FROM openjdk:17-alpine AS runner
 
 WORKDIR /app
 
 COPY --from=builder /app/build/libs/*.jar app.jar
 
-EXPOSE 4000
+EXPOSE 4001
+
+EXPOSE 9001
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
